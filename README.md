@@ -1,9 +1,9 @@
-RPi.GPIO_BP README
+# RPi.GPIO_BP README
 
-This is a modified version RPi.GPIO for Banana Pro/Pi. We call it RPi.GPIO_BP.
+This is a modified version of RPi.GPIO for Banana Pro/Pi. We call it RPi.GPIO_BP.
 It is based on the original [RPi.GPIO](https://pypi.python.org/pypi/RPi.GPIO).
-The modification is done by [LeMaker](http://lemaker.org). The RPi.GPIO_BP API usage are the same to the original RPi.GPIO.
-You can donwload the RPi.GPIO_BP from:
+The modification is done by [LeMaker](http://lemaker.org). The RPi.GPIO_BP API usage is identical to the original RPi.GPIO.
+You can download the RPi.GPIO_BP from:
 https://github.com/LeMaker/RPi.GPIO_BP.
 
 ## Download
@@ -15,15 +15,27 @@ https://github.com/LeMaker/RPi.GPIO_BP.
     sudo apt-get update
     sudo apt-get install python-dev
     cd /RPi.GPIO_BP
-    python setup.py install                 
-    sudo python setup.py install
+    python setup.py install  # substitute python for python3 if necessary                  
+    sudo python setup.py install  # substitute python for python3 if necessary   
     
-Please be attention that you need use both python and sudo pytohn to make the RPi.GPIO_BP work well.
+Please note that you need to use both `python setup.py install` and `sudo python setup.py install` to make the RPi.GPIO_BP work well.
+
+## Troubleshooting installation
+
+If you receive the following error when trying to import `RPi.GPIO`:
+
+    ImportError: No module named 'RPi.GPIO'
+
+Check whether the module is installed by running:
+
+    pip freeze  # substitute pip for pip3 if necessary
+    
+If it is, then check your current working directory (`pwd`). If you're still inside the `RPi.GPIO_BP` source directory, `cd` somewhere else, and run python from there - the error should disappear.
 
 ## Examples
 You can go to LeMaker wiki to see the basic examples: http://wiki.lemaker.org/RPi.GPIO
 
-And the source directory test also has many demo.
+And the source directory `test` also has many demos.
 
 ## Extra
 This version supports a new addressing mode "RAW" which enables you to use any GPIO pin. Below is an example which sets PD10 (which is pin 29 on the LCD connector) to a high level.
